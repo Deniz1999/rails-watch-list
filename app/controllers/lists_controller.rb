@@ -1,11 +1,6 @@
 class ListsController < ApplicationController
   def index
-    if params[:query].present?
-      @query = params[:query]
-      @lists = List.where("name ILIKE ?","%#{params[:query]}%")
-    else
-      @lists = List.all
-    end
+    @lists = List.all
   end
 
   def new
@@ -22,5 +17,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    @list = List.find(params[:id])
+    @bookmark = Bookmark.new
   end
 end

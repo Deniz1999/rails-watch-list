@@ -4,6 +4,8 @@ class BookmarksController < ApplicationController
   end
 
   def create
+    @bookmark = Bookmark.new
+    # @bookmark.save
   end
 
   def destroy
